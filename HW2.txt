@@ -1,0 +1,62 @@
+Leonard Blam 
+900086
+Computer Architecture
+Homework 2
+
+Q1.
+
+.text
+first:
+lb $a0 5
+add $t1 $a0 $zero
+syscall
+
+lb Sa0 5
+add §t2 $a0 $zero
+syscall
+
+
+la $s0 $t1
+la $s2 $t2
+bne $s0 $s1, equal
+j notEqual
+
+equal:
+add $s1 $s0 $zero
+la $a0 1 
+syscall
+j Exit
+
+notEqual:
+j first
+
+Exit:
+
+Q2.
+$t2 = 1
+than $t2 is not equal to $s0
+jumps to ELSE
+$t2 = $t2 + 2
+Done:
+Result $t2 = 0x00101010
+
+Q3.
+
+yes it is possible to jump instruction for pc to be adress of something else.
+But branch-on-equal will not instruct/set the pc to the same adress. 
+Bne will check if adress/value is same as other adress/value and than implement pc to this adress.
+
+Q4.
+
+1.
+since loop is a constant (label), rpt would be an I-type instruction.
+2.
+loop:
+slti $t1, §t2, 1
+beq $t1, 1, Exit
+addi $t2, -1
+j loop
+Exit:
+
+Q5.
+5
